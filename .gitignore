@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.neo4j/
+postgres_data/
+reports/
+data/artifacts/
+.DS_Store
+.vscode/
+.idea/

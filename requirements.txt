@@ -1,0 +1,7 @@
+langgraph
+langchain-core
+python-dotenv
+pydantic
+neo4j
+psycopg[binary]
+rich
