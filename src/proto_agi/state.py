@@ -18,6 +18,9 @@ class AgentState(BaseModel):
     # Caminho do relatório gerado
     report_path: str = ""
 
+    # Resumo registrado pelo auditor ao final do run
+    audit_summary: str = ""
+
     # Indica se a memória foi gravada com sucesso
     memory_saved: bool = False
 

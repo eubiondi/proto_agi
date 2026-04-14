@@ -23,7 +23,7 @@ def main():
     print("\n--- resultado ---")
     print(final.result)
     print(f"\nrelatório: {final.report_path}")
-    print(f"memória:   {'ok' if final.memory_saved else 'falhou'}")
+    print(f"auditoria: {final.audit_summary}")
     print(f"logs:      {final.logs}")
 
 
