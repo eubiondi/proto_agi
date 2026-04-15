@@ -9,6 +9,10 @@ class AgentState(BaseModel):
     # Entrada original do usuário
     request: str = ""
 
+    # Modo "focal": caminho absoluto do arquivo a ser analisado em profundidade
+    # Vazio no modo geral (context_loader + engineering_worker)
+    target_file: str = ""
+
     # Contexto reunido pelo nó de contexto (Obsidian, arquivos, etc.)
     context: str = ""
 

@@ -3,11 +3,13 @@ from langgraph.graph import StateGraph, END
 from .state import AgentState
 from .nodes.context_loader import context_loader
 from .nodes.engineering_worker import engineering_worker
+from .nodes.file_analyst import file_analyst
 from .nodes.report_writer import report_writer
 from .nodes.auditor import auditor
 
 
 def build_graph() -> StateGraph:
+    """Grafo padrão: diagnóstico geral do projeto 4Fractal."""
     builder = StateGraph(AgentState)
 
     builder.add_node("context_loader",      context_loader)
@@ -20,5 +22,21 @@ def build_graph() -> StateGraph:
     builder.add_edge("engineering_worker", "report_writer")
     builder.add_edge("report_writer",      "auditor")
     builder.add_edge("auditor",            END)
+
+    return builder.compile()
+
+
+def build_focal_graph() -> StateGraph:
+    """Grafo focal: análise profunda de um arquivo específico (chunk-and-consolidate)."""
+    builder = StateGraph(AgentState)
+
+    builder.add_node("file_analyst",  file_analyst)
+    builder.add_node("report_writer", report_writer)
+    builder.add_node("auditor",       auditor)
+
+    builder.set_entry_point("file_analyst")
+    builder.add_edge("file_analyst",  "report_writer")
+    builder.add_edge("report_writer", "auditor")
+    builder.add_edge("auditor",       END)
 
     return builder.compile()
