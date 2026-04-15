@@ -8,7 +8,7 @@ Configuração (lida do .env)
 ---------------------------
     OPENROUTER_API_KEY   — obrigatória
     OPENROUTER_BASE_URL  — padrão: https://openrouter.ai/api/v1
-    OPENROUTER_MODEL     — padrão: anthropic/claude-opus-4-6
+    OPENROUTER_MODEL     — padrão: anthropic/claude-sonnet-4-6
 
 Uso
 ---
@@ -26,7 +26,7 @@ from openai import OpenAI
 # ---------------------------------------------------------------------------
 
 _DEFAULT_BASE_URL  = "https://openrouter.ai/api/v1"
-_DEFAULT_MODEL     = "anthropic/claude-opus-4-6"
+_DEFAULT_MODEL     = "anthropic/claude-sonnet-4-6"
 _DEFAULT_MAX_TOKENS = 8_000
 
 
